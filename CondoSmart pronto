@@ -24,7 +24,7 @@
         <p>
           Gerenciar um condomínio pode ser um desafio, mas com o CondoSmart, a
           administração nunca foi tão simples e eficiente. Nosso aplicativo foi
-          criado para facilitar a organização e a manutenção do seu condomínio,
+          criado para facilitar a comunicação e a manutenção do seu condomínio,
           oferecendo uma solução completa e intuitiva para todas as suas
           necessidades. Com o CondoSmart, a administração do seu condomínio é
           mais eficiente, organizada e transparente. Baixe agora e descubra como
@@ -43,10 +43,7 @@
         <br />
         <h4>Centralização de comunicação</h4>
         <br />
-        <h4>
-          Centralizar todas as solicitações que podem ocorrer dentro de um
-          condomínio em um só lugar
-        </h4>
+
       </div>
       <div class="card card2">
         <img src="./imagens/nicho.jpg" alt="" />
@@ -56,15 +53,16 @@
         <h4>condomínios</h4>
         <br />
         <h4>administradora de imóveis</h4>
+        <br />
+        <h4>Moradores</h4>
       </div>
       <div class="card card3">
         <img src="./imagens/propostaValor.jpg" alt="" />
         <h1>Proposta de valor</h1>
         <br />
         <h4>
-          Agendamento e Controle de Manutenção Programe e acompanhe as
-          atividades de manutenção com facilidade. Receba lembretes automáticos
-          e mantenha seu condomínio sempre em perfeito estado.
+          Centralizar todas as solicitações que podem ocorrer dentro de um
+          condomínio em um só lugar
         </h4>
       </div>
     </section>
