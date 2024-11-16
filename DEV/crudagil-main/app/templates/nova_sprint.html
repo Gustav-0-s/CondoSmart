@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Nova Sprint</h1>
+    <!-- Formulário para criação de nova sprint -->
+    <form method="POST" action="{{ url_for('nova_sprint', projeto_id=projeto_id) }}">
+        <label for="nome_sprint">Nome da Sprint:</label>
+        <input type="text" id="nome_sprint" name="nome_sprint" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea>
+
+        <label for="data_inicio">Data de Início:</label>
+        <input type="date" id="data_inicio" name="data_inicio" required>
+
+        <label for="data_termino">Data de Término:</label>
+        <input type="date" id="data_termino" name="data_termino" required>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" required>
+
+        <label for="responsavel">Responsável:</label>
+            <select id="responsavel" name="responsavel" required>
+                {% for usuario in usuarios %}
+                    <option value="{{ usuario.usuario_id }}">{{ usuario.nome }}</option>
+                {% endfor %}
+            </select>
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('visualizar_sprints', projeto_id=projeto_id) }}">Cancelar</a>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  class="container "
+  style="
+   
+    
+    color: aliceblue;
+    padding-top: 130px;
+  "
+>
+  <!-- Título da seção -->
+
+    <h1>Solicitação de serviço</h1>
+
+
+  <!-- Formulário -->
+  <div class="p-4 rounded" >
+    <form method="POST" action="{{ url_for('novo_projeto') }}">
+      <!-- Nome do serviço -->
+      <div class="mb-3">
+        <label for="nome_projeto" class="form-label text-white">Serviço:</label>
+        <input
+          type="text"
+          id="nome_projeto"
+          name="nome_projeto"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Descrição -->
+      <div class="mb-3">
+        <label for="descricao" class="form-label text-white">Descrição:</label>
+        <textarea
+          id="descricao"
+          name="descricao"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Data de Início -->
+      <div class="mb-3">
+        <label for="data_inicio" class="form-label text-white">Data de Início:</label>
+        <input
+          type="date"
+          id="data_inicio"
+          name="data_inicio"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Data de Término -->
+      <div class="mb-3">
+        <label for="data_termino" class="form-label text-white">Data de Término:</label>
+        <input
+          type="date"
+          id="data_termino"
+          name="data_termino"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <!-- Prioridade -->
+<div class="mb-3">
+  <label for="prioridade" class="form-label text-white">Prioridade:</label>
+  <select id="prioridade" name="prioridade" class="form-control" required>
+    <option value="Baixa">Baixa</option>
+    <option value="Média">Média</option>
+    <option value="Alta">Alta</option>
+  </select>
+</div>
+
+
+      <!-- Botões -->
+      <div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="{{ url_for('lista_projetos') }}" class="btn btn-danger">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+  {% endblock %}
+</body>

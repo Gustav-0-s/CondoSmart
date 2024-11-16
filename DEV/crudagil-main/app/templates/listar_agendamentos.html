@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+<body style="padding: 160px; margin-top: 100px; color: aliceblue">
+  <div class="container">
+    <h2>Meus Agendamentos</h2>
+    <table class="table table-striped" style="color: aliceblue">
+      <thead>
+        <tr>
+          <th>Nome do Pet</th>
+          <th>Tipo de Serviço</th>
+          <th>Data e Hora</th>
+          <th>Observações</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for agendamento in agendamentos %}
+        <tr>
+          <td>{{ agendamento.nome_pet }}</td>
+          <td>{{ agendamento.tipo_servico }}</td>
+          <td>{{ agendamento.data_hora.strftime('%d/%m/%Y %H:%M') }}</td>
+          <td>{{ agendamento.observacoes }}</td>
+          <td>
+            <a
+              href="{{ url_for('editar_agendamento', agendamento_id=agendamento.agendamento_id) }}"
+              class="btn btn-warning btn-sm"
+            >
+              Editar
+            </a>
+            <a
+              href="{{ url_for('excluir_agendamento', agendamento_id=agendamento.agendamento_id) }}"
+              class="btn btn-danger btn-sm"
+            >
+              Excluir
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('agendar_passeio') }}" class="btn btn-primary">
+      Agendar Novo Passeio
+    </a>
+    <a href="{{ url_for('index') }}" class="btn btn-danger"> Sair </a>
+  </div>
+  {% endblock %}
+</body>

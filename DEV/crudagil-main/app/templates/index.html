@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="home" >
+  <div class="home-content">
+    <h1 style="padding-top: 100px;">CondoSmart.</h1>
+    <h3>Bem-Vindos</h3>
+    <br />
+    <p>
+      Gerenciar um condomínio pode ser um desafio, mas com o CondoSmart, a
+      administração nunca foi tão simples e eficiente. Nosso aplicativo foi
+      criado para facilitar a comunicação e a manutenção do seu condomínio,
+      oferecendo uma solução completa e intuitiva para todas as suas
+      necessidades. Com o CondoSmart, a administração do seu condomínio é
+      mais eficiente, organizada e transparente, além de ter um espaço especializado para seu pet. Baixe agora e descubra como
+      é fácil transformar a gestão do seu condomínio!
+    </p>
+  </div>
+  <img src="{{ url_for('static', filename='img/imgHome.jpg') }}" alt="" class="imgHome" />
+</section>
+<section class="cards">
+  <div class="card card1">
+    <img src="{{ url_for('static', filename='img/problema.jpg') }}" alt="" />
+    <h1>Problemas</h1>
+    <br />
+
+    <h4>Falta de comunicação/Centralização de comunicação</h4>
+    <br />
+  </div>
+  <div class="card card2">
+    <img src="{{ url_for('static', filename='img/nicho.jpg') }}" alt="" />
+    <h1>Nicho</h1>
+    <br />
+
+    <h4>condomínios</h4>
+    <br />
+    <h4>administradora de imóveis</h4>
+    <br />
+    <h4>Moradores</h4>
+    
+  </div>
+  <div class="card card3">
+    <img src="{{ url_for('static', filename='img/propostaValor.jpg') }}" alt="" />
+    <h1>Proposta de valor</h1>
+    <br />
+    <h4>
+      Centralizar todas as solicitações que podem ocorrer dentro de um
+      condomínio em um só lugar
+    </h4>
+  </div>
+</section>
+<section class="alunos">
+  <div class="alunos-titulo">
+    <h1>alunos:</h1>
+  </div>
+  <div class="nomes">
+    João Pedro Da Silva Fernandes <br />
+    Gustavo <br />
+    Gabriel
+  </div>
+</section>
+</body>
+
+{% endblock %}

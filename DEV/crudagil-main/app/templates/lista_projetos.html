@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<div style="margin-top: 100px; color: aliceblue" class="container">
+  <h2>Lista de serviços</h2>
+
+  <div>
+    <table class="table table-striped" style="color: aliceblue">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Serviço desejado</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Data de Início</th>
+          <th scope="col">Data de Término</th>
+          <th scope="col">Prioridade</th>
+
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for projeto in projetos %}
+        <tr>
+          <td style="color: aliceblue">{{ projeto.projeto_id }}</td>
+          <td style="color: aliceblue">{{ projeto.nome_projeto }}</td>
+          <td style="color: aliceblue">{{ projeto.descricao }}</td>
+          <td style="color: aliceblue">{{ projeto.data_inicio }}</td>
+          <td style="color: aliceblue">{{ projeto.data_termino }}</td>
+          <td style="color: aliceblue">{{ projeto.prioridade }}</td>
+          <!-- Exibindo a Prioridade -->
+          <td style="color: aliceblue" class="">
+            <div class="d-flex">
+              <a
+                href="{{ url_for('editar_projeto', projeto_id=projeto.projeto_id) }}"
+                class="btn btn-warning btn-sm"
+              >
+                Editar
+              </a>
+              <a
+                href="{{ url_for('excluir_projeto', projeto_id=projeto.projeto_id) }}"
+                class="btn btn-danger btn-sm"
+              >
+                Excluir
+              </a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="{{ url_for('novo_projeto') }}" class="btn btn-primary"
+      >Nova solicitação</a
+    >
+    <a href="{{ url_for('index') }}" class="btn btn-danger">Sair</a>
+  </div>
+    
+  </div>
+</div>
+
+{% endblock %}

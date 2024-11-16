@@ -1,0 +1,52 @@
+
+  {% extends 'base.html' %} {% block content %}
+  <body>
+    <div class="container" style="padding-top: 150px; color: aliceblue">
+      <h1>Agendar Serviço com Pet</h1>
+      <form method="POST">
+        <div class="form-group">
+          <label for="nome_pet">Nome do Pet</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome_pet"
+            name="nome_pet"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="tipo_servico">Tipo de Serviço</label>
+          <select
+            class="form-control"
+            id="tipo_servico"
+            name="tipo_servico"
+            required
+          >
+            <option value="Passeio">Passeio</option>
+            <option value="Cuidados Gerais">Cuidados Gerais</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="data_hora">Data e Hora</label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="data_hora"
+            name="data_hora"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="observacoes">Observações</label>
+          <textarea
+            class="form-control"
+            id="observacoes"
+            name="observacoes"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Agendar</button>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

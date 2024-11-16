@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Visualizar Sprints - {{ projeto.nome_projeto }}</h1>
+<table>
+  <tr>
+    <th>Sprint ID</th>
+    <th>Nome da Sprint</th>
+    <th>Descrição</th>
+    <th>Data de Início</th>
+    <th>Data de Término</th>
+    <th>Status</th>
+    <th>Responsável</th>
+    <th>Ações</th>
+  </tr>
+  {% for sprint in sprints %}
+  <tr>
+    <td>{{ sprint.sprint_id }}</td>
+    <td>{{ sprint.nome_sprint }}</td>
+    <td>{{ sprint.descricao }}</td>
+    <td>{{ sprint.data_inicio }}</td>
+    <td>{{ sprint.data_termino }}</td>
+    <td>{{ sprint.status }}</td>
+    <td>{{ responsavel[sprint.responsavel] }}</td>
+    <td>
+      <a href="{{ url_for('editar_sprint', sprint_id=sprint.sprint_id) }}"
+        >Editar</a
+      >
+      <a href="{{ url_for('excluir_sprint', sprint_id=sprint.sprint_id) }}"
+        >Excluir</a
+      >
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<a href="{{ url_for('nova_sprint', projeto_id=projeto.projeto_id) }}"
+  >Nova Sprint</a
+>
+<a href="{{ url_for('lista_projetos') }}">Voltar para a Lista de Projetos</a>
+{% endblock %}

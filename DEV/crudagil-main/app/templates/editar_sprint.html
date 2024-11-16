@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Editar Sprint - {{ sprint.nome_sprint }}</h1>
+    <!-- Formulário para edição da sprint -->
+    <form method="POST" action="{{ url_for('editar_sprint', sprint_id=sprint.sprint_id) }}">
+        <label for="nome_sprint">Nome da Sprint:</label>
+        <input type="text" id="nome_sprint" name="nome_sprint" value="{{ sprint.nome_sprint }}" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required>{{ sprint.descricao }}</textarea>
+
+        <label for="data_inicio">Data de Início:</label>
+        <input type="date" id="data_inicio" name="data_inicio" value="{{ sprint.data_inicio }}" required>
+
+        <label for="data_termino">Data de Término:</label>
+        <input type="date" id="data_termino" name="data_termino" value="{{ sprint.data_termino }}" required>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="{{ sprint.status }}" required>
+
+        <label for="responsavel">Responsável:</label>
+            <select id="responsavel" name="responsavel" required>
+                {% for usuario in usuarios %}
+                    <option value="{{ usuario.usuario_id }}" {% if usuario.usuario_id == sprint.responsavel %}selected{% endif %}>
+                        {{ usuario.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{{ url_for('visualizar_sprints', projeto_id=sprint.projeto_id) }}">Cancelar</a>
+{% endblock %}

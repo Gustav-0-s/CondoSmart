@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+<!-- editar_projeto.html -->
+<div class="container" style="color: aliceblue; padding-top: 90px;">
+  <h2>Editar Projeto</h2>
+
+  <div class="p-4 rounded">
+    <form method="POST" action="{{ url_for('editar_projeto', projeto_id=projeto.projeto_id) }}">
+      <!-- Nome do serviço -->
+      <div class="mb-3">
+        <label for="nome_projeto" class="form-label text-white">Serviço:</label>
+        <input
+          type="text"
+          id="nome_projeto"
+          name="nome_projeto"
+          class="form-control"
+          value="{{ projeto.nome_projeto }}"
+          required
+        />
+      </div>
+
+      <!-- Descrição -->
+      <div class="mb-3">
+        <label for="descricao" class="form-label text-white">Descrição:</label>
+        <textarea
+          id="descricao"
+          name="descricao"
+          class="form-control"
+          required
+        >{{ projeto.descricao }}</textarea>
+      </div>
+
+      <!-- Data de Início -->
+      <div class="mb-3">
+        <label for="data_inicio" class="form-label text-white">Data de Início:</label>
+        <input
+          type="date"
+          id="data_inicio"
+          name="data_inicio"
+          class="form-control"
+          value="{{ projeto.data_inicio }}"
+          required
+        />
+      </div>
+
+      <!-- Data de Término -->
+      <div class="mb-3">
+        <label for="data_termino" class="form-label text-white">Data de Término:</label>
+        <input
+          type="date"
+          id="data_termino"
+          name="data_termino"
+          class="form-control"
+          value="{{ projeto.data_termino }}"
+          required
+        />
+      </div>
+
+      <!-- Prioridade -->
+      <div class="mb-3">
+        <label for="prioridade" class="form-label text-white">Prioridade:</label>
+        <select id="prioridade" name="prioridade" class="form-control" required>
+          <option value="Baixa" {% if projeto.prioridade == 'Baixa' %} selected {% endif %}>Baixa</option>
+          <option value="Média" {% if projeto.prioridade == 'Média' %} selected {% endif %}>Média</option>
+          <option value="Alta" {% if projeto.prioridade == 'Alta' %} selected {% endif %}>Alta</option>
+        </select>
+      </div>
+
+      <!-- Botões -->
+      <div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="{{ url_for('lista_projetos') }}" class="btn btn-danger">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
